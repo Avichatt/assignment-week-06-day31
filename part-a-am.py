@@ -1,7 +1,6 @@
-"""
-Day 32 | AM Session | Part A: 
+ Part A: 
 
-"""
+
 
 import numpy as np
 import pandas as pd
@@ -62,10 +61,10 @@ X_train, X_test, y_train, y_test = train_test_split(
 dt = DecisionTreeClassifier(max_depth=4, random_state=42)
 dt.fit(X_train, y_train)
 
-print("\n========== Decision Tree Text Rules ==========")
+
 print(export_text(dt, feature_names=list(X.columns), max_depth=3))
 
-# Extract human-readable rules from the tree
+
 def extract_top_rules(tree, feature_names, top_n=3):
     """Walk the tree and return the top-N leaf rules sorted by sample count."""
     t = tree.tree_
@@ -88,7 +87,7 @@ def extract_top_rules(tree, feature_names, top_n=3):
     return rules[:top_n]
 
 top3 = extract_top_rules(dt, list(X.columns))
-print("\n========== Top 3 Decision Rules ==========")
+
 for i, (path, lbl, conf, samp) in enumerate(top3, 1):
     action = "APPROVE" if lbl == 1 else "REJECT"
     print(f"  Rule {i}: IF {' AND '.join(path)} -> {action}  "
@@ -114,7 +113,7 @@ rf_search = RandomizedSearchCV(
 rf_search.fit(X_train, y_train)
 best_rf = rf_search.best_estimator_
 
-print("\n========== Best RF Params ==========")
+
 print(rf_search.best_params_)
 
 
@@ -151,7 +150,7 @@ imp_df = pd.DataFrame({
     'Permutation (mean)':    perm.importances_mean,
 }).sort_values('Permutation (mean)', ascending=False)
 
-print("\n========== Feature Importance Comparison ==========")
+
 print(imp_df.to_string(index=False))
 
 
@@ -170,8 +169,8 @@ print("Saved: feature_importance_comparison.png")
 
 # Step 6
 
-print("\n========== Recommendation ==========")
-print("""
+
+
 The bank should deploy the Random Forest as its primary scoring engine because it
 delivers superior Accuracy, F1-Score, and ROC-AUC, which means fewer bad loans slip
 through. However, since regulators require clear explanations for every decision,
@@ -180,4 +179,4 @@ top rules (e.g. "IF credit_score > 700 AND debt_to_income < 0.35 → APPROVE") c
 serve as human-readable justifications. In practice, the RF scores the applicant
 and the DT rules are shown as the 'reason code' — giving us both accuracy AND
 transparency.
-""")
+
