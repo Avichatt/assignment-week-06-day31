@@ -120,23 +120,23 @@ results_df = pd.DataFrame(results)
 print(results_df.to_string(index=False))
 
 
-# Document findings 
 
-## Splitting Difference
+
+
 - **RF** finds the best threshold for each feature at every split.
 - **ExtraTrees** picks random thresholds, then chooses the best among them.
 - This makes ExtraTrees faster but individual trees are weaker.
 
-## Speed
+
 - ExtraTrees trains faster because skipping the threshold search saves computation.
 - Amazon and Netflix use ExtraTrees in real-time pipelines where speed matters.
 
-## Performance
+
 - On our loan dataset, both models performed comparably.
 - ExtraTrees sometimes slightly beats RF because the added randomness reduces
   overfitting (more diversity in the ensemble).
 
-## When to use ExtraTrees
+
 - When you need faster training with similar accuracy.
 - When your dataset is large and you want to reduce computation.
 - When overfitting is a concern (more randomness = less overfitting).
