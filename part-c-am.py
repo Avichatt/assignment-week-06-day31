@@ -39,11 +39,11 @@ How bagging reduces variance (conceptual diagram):
     │  Bootstrap Sample 1 → Tree 1 → Pred 1       │
     │  Bootstrap Sample 2 → Tree 2 → Pred 2       │
     │  Bootstrap Sample 3 → Tree 3 → Pred 3       │
-    │  ...                                         │
+    │                                             │
     │  Bootstrap Sample N → Tree N → Pred N       │
-    │                                              │
-    │  Final = AVERAGE(Pred 1..N)                  │
-    │  LOW variance (averaging cancels noise)      │
+    │                                             │
+    │  Final = AVERAGE(Pred 1..N)                 │
+    │  LOW variance (averaging cancels noise)     │
     └─────────────────────────────────────────────┘
 
     Variance of average = (original variance) / N
@@ -51,7 +51,7 @@ How bagging reduces variance (conceptual diagram):
 
 
 
-# Q2: C
+# Q2:
 
 np.random.seed(42)
 n = 1000
