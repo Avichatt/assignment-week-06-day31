@@ -1,5 +1,5 @@
 
- Part D:
+ #Part D:
 
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
@@ -128,15 +128,12 @@ print("Saved: model_comparison_infographic.png")
 # Step 2: 
 
 
-
-
-Is it accurate?
   YES — the key differences are correctly represented:
   - DT is the most interpretable but prone to overfitting.
   - RF is the most accurate but harder to explain.
   - Logistic Regression is the fastest and simplest but limited to linear patterns.
 
-Does it oversimplify?
+
   SLIGHTLY — here's what's missing or simplified:
   1. Random Forest CAN provide some interpretability via feature importance,
      it's not completely a black box.
